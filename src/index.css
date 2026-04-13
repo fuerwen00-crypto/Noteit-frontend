@@ -1,0 +1,67 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Be+Vietnam+Pro:wght@300;400;500;600&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-headline: "Plus Jakarta Sans", sans-serif;
+  --font-body: "Be Vietnam Pro", sans-serif;
+
+  --color-primary: #b90035;
+  --color-primary-container: #ff7480;
+  --color-on-primary: #ffefef;
+  --color-secondary: #9d365c;
+  --color-surface: #f9f6f5;
+  --color-surface-container-low: #f3f0ef;
+  --color-surface-container-high: #e4e2e1;
+  --color-surface-container-highest: #dfdcdc;
+  --color-surface-container-lowest: #ffffff;
+  --color-on-surface: #2f2f2e;
+  --color-on-surface-variant: #5c5b5b;
+  --color-outline: #787676;
+  --color-outline-variant: #afadac;
+}
+
+@layer base {
+  body {
+    @apply bg-surface text-on-surface font-body antialiased;
+  }
+}
+
+@layer utilities {
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  
+  .masonry-grid {
+    column-count: 1;
+    column-gap: 1.5rem;
+  }
+  
+  @media (min-width: 640px) {
+    .masonry-grid {
+      column-count: 2;
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    .masonry-grid {
+      column-count: 4;
+    }
+  }
+  
+  .masonry-item {
+    break-inside: avoid;
+    margin-bottom: 1.5rem;
+  }
+
+  .signature-gradient {
+    background: linear-gradient(135deg, #b90035 0%, #ff7480 100%);
+  }
+
+  .glass-header {
+    @apply backdrop-blur-lg bg-surface/80;
+  }
+}
